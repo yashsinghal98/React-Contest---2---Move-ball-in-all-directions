@@ -49,11 +49,12 @@ const App = () => {
       setX(valx);
     }
     setBallPosition(temp);
-}
+};
   let buttonClickHandler=()=>{
-    setRenderBall(true);
     document.addEventListener("keydown",()=>{handlekey(event)});
-  }
+    setRenderBall(true);
+    
+  };
   let renderChoice = () => {
     if(renderBall){return <div className="ball" style={ballPosition}></div>}
 		 else   return <button onClick={buttonClickHandler} className="start">Start
