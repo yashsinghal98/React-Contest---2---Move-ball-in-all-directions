@@ -9,6 +9,8 @@ const App = () => {
     left: "0px",
     top: "0px",
   });
+  let valx=x;
+    let valy=y;
   const reset = () => {
     console.log("stop");
     setRenderBall(false);
@@ -22,31 +24,30 @@ const App = () => {
   let handlekey=function(event){
     console.log(event.key);
     let temp={...ballPosition};
-    let valx=x;
-    let valy=y;
+    
     if(event.key==="ArrowRight")
     {
       temp.left=`${valx+5}px`;
       valx+=5;
-      setX(valx);
+      
     }
     else if(event.key==="ArrowDown")
     {
       temp.top=`${valy+5}px`;
       valy+=5;
-      setY(valy);
+     
     }
     else if(event.key==="ArrowUp")
     {
       temp.top=`${valy-5}px`;
       valy-=5;
-      setY(valy);
+     
     }
     else if(event.key==="ArrowLeft")
     {
       temp.left=`${valx-5}px`;
       valx-=5;
-      setX(valx);
+    
     }
     setBallPosition(temp);
 };
