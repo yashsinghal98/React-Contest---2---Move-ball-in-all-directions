@@ -10,10 +10,12 @@ const App = () => {
     top: "0px",
     position: "absolute"
   });
+  let valx=0;
+  let valy=0;
   const reset = () => {
     setRenderBall(false);
-    setX(0);
-    setY(0);
+    valx=0;
+    valy=0;
     setBallPosition({
       left: "0px",
       top: "0px",
@@ -22,34 +24,24 @@ const App = () => {
   };
   const start = () => {
     setRenderBall(true);
-    //document.addEventListener("keydown", handlekey);
-  };
-  useEffect(() => {
     document.addEventListener("keydown", handlekey);
-  });
+  };
+ /* useEffect(() => {
+    setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
+  });*/
   const handlekey = (event) => {
     console.log(event.key);
     if (event.key === "ArrowRight") {
-      let k = x + 5;
-      setX(k);
-      setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
-      console.log(x);
+      valx+=5;
     } else if (event.key === "ArrowLeft") {
-      const k = x - 5;
-      setX(k);
-      setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
+      valx-=5;
     } else if (event.key === "ArrowUp") {
-      const k = y - 5;
-      setY(k);
-      setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
+      valy-=5;
     } else if (event.key === "ArrowDown") {
-      const k = y + 5;
-      setY(k);
-      setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
+      valy+=5;
     }
-    console.log(x + " " + y);
-    console.log(ballPosition);
-    //setBallPosition({ left: `${x}px`, top: `${y}px`, position: `absolute` });
+   
+    setBallPosition({ left: `${valx}px`, top: `${valy}px`, position: `absolute` });
   };
 
   const renderChoice = () => {
