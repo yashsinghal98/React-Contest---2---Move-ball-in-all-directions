@@ -19,7 +19,7 @@ const App = () => {
     temp.top='0px';
     setBallPosition(temp);
   };
-  const handlekey=function(event){
+  let handlekey=function(event){
     console.log(event.key);
     let temp={...ballPosition};
     let valx=x;
@@ -50,11 +50,11 @@ const App = () => {
     }
     setBallPosition(temp);
 }
-  const buttonClickHandler=()=>{
+  let buttonClickHandler=()=>{
     setRenderBall(true);
-    document.addEventListener("keydown",()=>handlekey(event))
+    document.addEventListener("keydown",()=>{handlekey(event)});
   }
-  const renderChoice = () => {
+  let renderChoice = () => {
     if(renderBall){return <div className="ball" style={ballPosition}></div>}
 		 else   return <button onClick={buttonClickHandler} className="start">Start
      </button>
