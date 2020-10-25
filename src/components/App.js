@@ -10,6 +10,7 @@ const App = () => {
     top: "0px",
   });
   const reset = () => {
+    console.log("stop");
     setRenderBall(false);
     setX(0);
     setY(0);
@@ -26,23 +27,28 @@ const App = () => {
     if(event.key==="ArrowRight")
     {
       temp.left=`${valx+5}px`;
+      valx+=5;
+      setX(valx);
     }
     else if(event.key==="ArrowDown")
     {
       temp.top=`${valy+5}px`;
+      valy+=5;
+      setY(valy);
     }
     else if(event.key==="ArrowUp")
     {
       temp.top=`${valy-5}px`;
+      valy-=5;
+      setY(valy);
     }
     else if(event.key==="ArrowLeft")
     {
       temp.left=`${valx-5}px`;
+      valx-=5;
+      setX(valx);
     }
     setBallPosition(temp);
-    setX(valx);
-    setY(valy);
-    console.log(ballPosition);
 }
   const buttonClickHandler=()=>{
     setRenderBall(true);
@@ -50,7 +56,8 @@ const App = () => {
   }
   const renderChoice = () => {
     if(renderBall){return <div className="ball" style={ballPosition}></div>}
-		 else   return <button onClick={buttonClickHandler} >Click For One Ball</button>
+		 else   return <button onClick={buttonClickHandler} className="start">Start
+     </button>
   };
   return (
     <div className="playground">
